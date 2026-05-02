@@ -1,6 +1,17 @@
 services:
   wiki:
-    build: .
+    image: nginx:alpine
     container_name: wiki
+    ports:
+      - "8081:80"
+    volumes:
+      - ./wiki.gsblocal7.b/public:/var/www/html
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - php
+
+  php:
+    build: .
+    container_name: wiki-php-fpm
     volumes:
       - ./public:/var/www/html
