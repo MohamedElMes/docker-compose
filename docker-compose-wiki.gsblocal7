@@ -1,0 +1,6 @@
+services:
+  wiki:
+    build: .
+    container_name: wiki
+    volumes:
+      - ./public:/var/www/html
