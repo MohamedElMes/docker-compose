@@ -5,8 +5,8 @@ services:
     ports:
       - "8081:80"
     volumes:
-      - ./wiki.gsblocal7.b/public:/var/www/html
-      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - /opt/sites/wiki.gsblocal7.b/public/wiki.gsblocal7/:/var/www/html
+      - /opt/sites/wiki.gsblocal7.b/nginx/default.conf:/etc/nginx/conf.d/default.conf
     depends_on:
       - php
 
@@ -14,4 +14,4 @@ services:
     build: .
     container_name: wiki-php-fpm
     volumes:
-      - ./public:/var/www/html
+      - /opt/sites/wiki.gsblocal7.b/public/wiki.gsblocal7/:/var/www/html
